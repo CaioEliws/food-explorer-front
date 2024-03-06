@@ -11,9 +11,9 @@ export const Container = styled.div`
 
     gap: 15px;
 
-    border: none;
+    height: 100%;
 
-    min-height: 260px;
+    border: none;
 
     .btnFavorite {
       position: absolute;

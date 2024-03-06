@@ -25,7 +25,7 @@ export function Dish({ data, ...rest}) {
             <Link to={`/details/${data.id}`}> {data.title} <IoIosArrowForward /></Link>
 
             <p> 
-            {data.description.length > 50 ? `${data.description.slice(0, 100)}...` : data.description} 
+                {data.description.length > 50 ? `${data.description.slice(0, 100)}...` : data.description}
             </p>
 
             <h2>R${data.price}</h2>

@@ -17,7 +17,7 @@ import { Input } from "../../components/Input";
 
 
 export function New() {
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState("");
     const [fileName, setFileName] = useState("");
 
     const [title, setTitle] = useState("");
@@ -49,9 +49,8 @@ export function New() {
     }
 
     async function handleNewDish(){
-
-        if(!image || !title || !category || !price || !ingredients) {
-            alert("Preencha todos os campos!!!");
+        if(!image || !title || !category || !price) {
+            return alert("Preencha todos os campos!!!");
         }
 
         if(newIngredient) {
@@ -62,6 +61,7 @@ export function New() {
             const formData =  new FormData();
 
             formData.append("image", image);
+
             formData.append("title", title);
             formData.append("category", category);
             formData.append("price", price);
@@ -76,14 +76,11 @@ export function New() {
         }   catch ( error ) {
             if (error.response) {
                 alert(error.response.data.message);
-            } else {
-            alert("Não foi possível cadastrar o prato.");
             }
         }
 
     }
     
-
     return(
         <Container>
             <HeaderAdmin />
@@ -184,6 +181,7 @@ export function New() {
                     <div className="btnSave">
                         <button 
                             className="Save"
+                            type="button"
                             onClick={handleNewDish}
                         >
                             Adicionar prato
@@ -192,11 +190,6 @@ export function New() {
                 </Form>
 
             </main>
-
-
-
-
-
             <Footer />
         </Container>
     )

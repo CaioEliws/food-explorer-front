@@ -14,7 +14,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-export function HomeAdm({ setSearch }) {
+export function HomeAdm() {
 
     const [search] = useState("");
     const [dishes, setDishes] = useState({ meals: [], desserts: [] });
@@ -35,7 +35,7 @@ export function HomeAdm({ setSearch }) {
         }
 
         fetchDishes();
-    },[search]);
+    },[]);
     
 
     return(

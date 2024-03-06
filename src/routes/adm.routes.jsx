@@ -11,7 +11,7 @@ export function AdmRoutes() {
         <Routes>
             <Route path='/' element={<HomeAdm />} />
             <Route path='/details/:id' element={<DetailsAdm />} />
-            <Route path='/edit/:id' element={<Edit />} />
+            <Route path="/edit/:id" element={<Edit />} />
             <Route path='/new' element={<New />} />
             <Route path='/profile' element={<ProfileAdm />} />
         </Routes>

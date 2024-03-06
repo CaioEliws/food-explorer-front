@@ -13,6 +13,8 @@ export const Container = styled.div`
 
     border: none;
 
+    height: 100%;
+
     .btnFavorite {
       position: absolute;
       right: 18px;
@@ -33,6 +35,7 @@ export const Container = styled.div`
 
     > p {
       font-size: 12px;
+      height: 42px;
       color: ${({ theme }) => theme.COLORS.WHITE_400};
     }
 

@@ -13,7 +13,8 @@ import { IngredientsItem } from "../../components/IngredientsItem";
 import { Textarea } from "../../components/Textarea";
 
 import { Container, Form } from "./styles";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export function Edit() {
     
@@ -34,8 +35,8 @@ export function Edit() {
     const params = useParams();
     const navigate = useNavigate();
 
-    function handleUpdateImage(e) {
-        const file = e.target.files[0];
+    function handleChangeImage(event) {
+        const file = event.target.files[0];
         setImage(file);
         setFileName(file.name);
     }
@@ -61,31 +62,25 @@ export function Edit() {
             }
             return alert("Erro ao carregar informações");
         }
-        
     }
 
-    async function handleUpdateDish(){
-
-
-        if(newIngredient) {
-            return alert("Você deixou um ingrediente no campo para adicionar, mas não clicou em adicionar.")
-        }
-
+    async function handleUpdateDish() {
         try {
             const formData = new FormData();
-
+    
             formData.append("image", image);
             formData.append("title", title);
             formData.append("category", category);
             formData.append("price", price);
             formData.append("description", description);
-
+    
             formData.append("ingredients", JSON.stringify(ingredients));
-
+    
             await api.patch(`/dishes/${params.id}`, formData);
+    
             alert("Prato editado com sucesso!");
             navigate("/");
-
+    
         } catch (error) {
             if (error.response) {
                 alert(error.response.data.message);
@@ -95,7 +90,7 @@ export function Edit() {
         }
     }
 
-    useEffect(() => {
+    useEffect(() => {    
         async function fetchDish() {
             try {
                 const response = await api.get(`/dishes/${params.id}`);
@@ -113,13 +108,13 @@ export function Edit() {
                 if (error.response) {
                     alert(error.response.data.message);
                 } else {
-                    // alert("Não foi possível atualizar o prato.");
+                    alert("Não foi possível atualizar o prato.");
                 }
             }
         }
-
+    
         fetchDish();
-    }, [])
+      }, []);
 
     return(
         <Container>
@@ -142,7 +137,7 @@ export function Edit() {
                                 title={"Imagem do prato"}
                                 text={fileName || "Selecione imagem"}
                                 id="image"
-                                onChange={handleUpdateImage}
+                                onChange={handleChangeImage}
                             />
                         </SectionTwo>                 
 
@@ -214,6 +209,7 @@ export function Edit() {
                     <div className="buttons">
                         <button 
                             className="btnDelete"
+                            type="button"
                             onClick={handleDeletedDish}
                         >
                             Excluir prato
@@ -221,6 +217,7 @@ export function Edit() {
 
                         <button 
                             className="btnSave"
+                            type="button"
                             onClick={handleUpdateDish}
                         >
                             Salvar Alterações
@@ -229,11 +226,6 @@ export function Edit() {
                 </Form>
 
             </main>
-
-
-
-
-
             <Footer />
         </Container>
     )

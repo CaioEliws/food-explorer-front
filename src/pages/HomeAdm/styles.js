@@ -45,14 +45,6 @@ export const Content = styled.div`
     font-weight: 500;
   }
 
-  .swiper-slide {
-    text-align: center;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   .swiper-button-prev::after {
     color: white;
   }
