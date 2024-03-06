@@ -1,0 +1,160 @@
+import { useEffect, useState } from "react";
+import { api } from "../../services/api";
+
+import { Container, Content } from "./styles";
+
+import { HeaderAdmin } from '../../components/HeaderAdmin'
+import { Footer } from '../../components/Footer'
+import { DishAdm } from '../../components/DishAdm'
+import { Section } from '../../components/Section'
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+export function HomeAdm({ setSearch }) {
+
+    const [search] = useState("");
+    const [dishes, setDishes] = useState({ meals: [], desserts: [] });
+
+    useEffect(() => {
+        async function fetchDishes() {
+            try {
+                const response = await api.get(`/dishes?search=${search}`);
+                const meals = response.data.filter(dish => dish.category === "meals");
+                const desserts = response.data.filter(dish => dish.category === "desserts");
+                const drinks = response.data.filter(dish => dish.category === "drinks");
+
+                setDishes({ meals, desserts, drinks });
+            } catch (error) {
+                console.error("Error fetching dishes:", error.message);
+
+            }
+        }
+
+        fetchDishes();
+    },[search]);
+    
+
+    return(
+        <Container>
+
+            <HeaderAdmin />
+
+
+            <Content>
+
+                <div className="banner-container">
+                    <div className="banner-img">
+                    </div>
+                    
+                    <div className="banner-text">
+                        <h1>Sabores inigualáveis</h1>
+                        <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
+                    </div>
+                </div>
+
+                <Section title="Refeições">
+
+                    <Swiper
+                        slidesPerView={4}
+                        spaceBetween={27}
+                        loop={true}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        navigation={true}
+                        modules={[Pagination, Navigation]}
+                        className="swiper-wrapper"
+                    >
+                        
+
+                        {
+                             dishes.meals && dishes.meals.map((dish) => {
+                                return (
+                                    <SwiperSlide key={String(dish.id)}>
+                                        <DishAdm data={dish} />
+                                    </SwiperSlide>
+                                );
+                            })
+                        }
+
+                    </Swiper>
+                </Section>
+
+                <Section title="Sobremesas">
+                    <Swiper 
+                        slidesPerView={4}
+                        spaceBetween={27}
+                        loop={true}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        navigation={true}
+                        modules={[Pagination, Navigation]}
+                        className="swiper-wrapper"
+                    >
+
+                        {
+                            dishes.desserts && dishes.desserts.map((dish) => {
+                                return (
+                                    <SwiperSlide key={String(dish.id)}>
+                                        <DishAdm data={dish} />
+                                    </SwiperSlide>
+                                );
+                            })
+                        }
+
+                    </Swiper>
+                </Section>
+
+                {/* <Section title="Drinks">
+                    <Swiper 
+                        slidesPerView={4}
+                        spaceBetween={27}
+                        loop={true}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        navigation={true}
+                        modules={[Pagination, Navigation]}
+                        className="swiper-wrapper"
+                    >
+
+                        {
+                            dishes.drinks && dishes.drinks.map((dish) => {
+                                return (
+                                    <SwiperSlide key={String(dish.id)}>
+                                        <DishAdm data={dish} />
+                                    </SwiperSlide>
+                                );
+                            })
+                        }
+
+                    </Swiper>
+                </Section> */}
+
+
+            </Content>
+
+            <Footer />
+
+        </Container>
+    )
+}
+{/* <div className="content">
+
+    <img src="" alt="" />
+    <h1>Spaguetti Gambe</h1>
+    <p>Massa fresca com camarões e pesto. </p>
+    <h2>R$ 79,97</h2>
+    <div className="buttons">
+        <FaMinus />
+        01
+        <FaPlus />
+        <Button title="incluir" />
+    </div>
+        
+</div> */}
