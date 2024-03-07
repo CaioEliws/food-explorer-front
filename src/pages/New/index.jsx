@@ -49,8 +49,12 @@ export function New() {
     }
 
     async function handleNewDish(){
-        if(!image || !title || !category || !price) {
+        if(!image || !title || !price) {
             return alert("Preencha todos os campos!!!");
+        }
+
+        if(!newIngredient) {
+            return alert("Insira algum ingrediente para o seu prato!!!")
         }
 
         if(newIngredient) {

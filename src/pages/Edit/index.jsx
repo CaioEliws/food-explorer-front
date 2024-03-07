@@ -66,6 +66,26 @@ export function Edit() {
 
     async function handleUpdateDish() {
         try {
+            if(!image) {
+                return alert("Selecione uma imagem para o prato!!!");
+            }
+
+            if(!title) {
+                return alert("Digite o nome do prato!!!");
+            }
+    
+            if(newIngredient) {
+                return alert("Você deixou um ingrediente no campo para adicionar, mas não clicou em adicionar.")
+            }
+
+            if(!price) {
+                return alert("Coloque um valor para o prato!!!");
+            }
+
+            if(!description) {
+                return alert("Digite a descrição do prato!!!");
+            }
+
             const formData = new FormData();
     
             formData.append("image", image);
@@ -200,6 +220,7 @@ export function Edit() {
                         <SectionTwo title="Descrição">
                             <Textarea
                                 type="text"
+                                value={description}
                                 placeholder="A Salada César é uma opção refrescante para o verão."
                                 onChange={e => setDescription(e.target.value)}
                             />

@@ -56,15 +56,18 @@ export const Content = styled.div`
         > #btnEdit {
             border: 0;
             border-radius: 5px;
-
-            width: 25%;
-    
+            
+            flex-wrap: nowrap;
+            max-width: 40%;
+            
+            font-size: 14px;
+            
             display: flex;
             padding: 12px 24px;
             justify-content: center;
             align-items: center;
             gap: 8px;
-    
+
             background-color: ${({ theme }) => theme.COLORS.TOMATO};
             color: ${({ theme }) => theme.COLORS.WHITE};
         }

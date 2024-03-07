@@ -83,6 +83,10 @@ export const Content = styled.div`
             border-radius: 5px;
 
             margin-left: 33px;
+            
+            max-width: 40%;
+            
+            font-size: 14px;
 
             display: flex;
             padding: 12px 24px;
