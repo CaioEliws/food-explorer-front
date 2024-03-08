@@ -25,7 +25,7 @@ export function Header() {
             <Input
                 placeholder="Busque por pratos ou ingredientes"
                 icon={IoIosSearch}
-                // onChange={(e) => setSearch(e.target.value)}
+                // onChange={(e) => handleSearch(e.target.value)}
             />
 
             <Button

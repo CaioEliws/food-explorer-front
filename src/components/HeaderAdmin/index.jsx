@@ -8,13 +8,20 @@ import { Logotipoadm } from "../Logotipoadm";
 
 import { IoIosSearch, IoMdMenu } from "react-icons/io";
 
-export function HeaderAdmin({ setSearch }) {
+export function HeaderAdmin({ onSearch }) {
   const { signOut } = useAuth();
 
   const handleMenuClick = () => {
     const list = document.getElementById("list");
     list.classList.toggle("visible");
   };
+
+  const handleSearch = (value) => {
+    if (typeof onSearch === "function") {
+      onSearch(value);
+      console.log("Pesquisando por:", value);
+    }
+}
 
   return (
     <Container>
@@ -23,7 +30,7 @@ export function HeaderAdmin({ setSearch }) {
       <Input
         placeholder="Busque por pratos ou ingredientes"
         icon={IoIosSearch}
-        // onChange={(e) => setSearch(e.target.value)}
+        onChange={(e) => handleSearch(e.target.value)}
       />
 
       <Link 

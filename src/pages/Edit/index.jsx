@@ -17,7 +17,6 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 export function Edit() {
-    
     const [image, setImage] = useState(null);
     const [fileName, setFileName] = useState("");
 
@@ -51,47 +50,45 @@ export function Edit() {
     }
 
     async function handleDeletedDish() {
+        const confirm = window.confirm("Deseja realmente excluir este prato?");
 
-        try {
-            await api.delete(`/dishes/${params.id}`);
-            alert("Prato excluído com sucesso!");
-            navigate("/");
-        } catch(error) {
-            if(error.response) {
-                return alert(error.response.data.message);
-            }
-            return alert("Erro ao carregar informações");
+        if(confirm) {
+            await api.delete(`/dishes/${params.id}`)
+            navigate("/")
         }
     }
 
     async function handleUpdateDish() {
+        
+        if(!image) {
+            return alert("Selecione uma imagem para o prato!!!");
+        }
+
+        if(!title) {
+            return alert("Digite o nome do prato!!!");
+        }
+
+        if(newIngredient) {
+            return alert("Você deixou um ingrediente no campo para adicionar, mas não clicou em adicionar.")
+        }
+
+        if(!price) {
+            return alert("Coloque um valor para o prato!!!");
+        }
+
+        if(!description) {
+            return alert("Digite a descrição do prato!!!");
+        }
+        
         try {
-            if(!image) {
-                return alert("Selecione uma imagem para o prato!!!");
-            }
-
-            if(!title) {
-                return alert("Digite o nome do prato!!!");
-            }
-    
-            if(newIngredient) {
-                return alert("Você deixou um ingrediente no campo para adicionar, mas não clicou em adicionar.")
-            }
-
-            if(!price) {
-                return alert("Coloque um valor para o prato!!!");
-            }
-
-            if(!description) {
-                return alert("Digite a descrição do prato!!!");
-            }
+            const formatPrice = Number(price.toString().replace(",","."))
 
             const formData = new FormData();
     
             formData.append("image", image);
             formData.append("title", title);
             formData.append("category", category);
-            formData.append("price", price);
+            formData.append("price", formatPrice);
             formData.append("description", description);
     
             formData.append("ingredients", JSON.stringify(ingredients));
@@ -123,7 +120,6 @@ export function Edit() {
                 setIngredients(dish.ingredients.map(ingredient => ingredient.name));
                 setDescription(dish.description);
 
-
             } catch (error) {
                 if (error.response) {
                     alert(error.response.data.message);
@@ -134,7 +130,7 @@ export function Edit() {
         }
     
         fetchDish();
-      }, []);
+    }, []);
 
     return(
         <Container>

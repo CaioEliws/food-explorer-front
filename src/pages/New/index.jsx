@@ -48,14 +48,12 @@ export function New() {
         setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted))
     }
 
-    async function handleNewDish(){
+    async function handleNewDish() {
         if(!image || !title || !price) {
             return alert("Preencha todos os campos!!!");
         }
 
-        if(!newIngredient) {
-            return alert("Insira algum ingrediente para o seu prato!!!")
-        }
+        const formatPrice = Number(price.toString().replace(",","."))
 
         if(newIngredient) {
             return alert("Você deixou um ingrediente no campo para adicionar, mas não clicou em adicionar.")
@@ -68,7 +66,7 @@ export function New() {
 
             formData.append("title", title);
             formData.append("category", category);
-            formData.append("price", price);
+            formData.append("price", formatPrice);
             formData.append("description", description);
 
             formData.append("ingredients", JSON.stringify(ingredients));

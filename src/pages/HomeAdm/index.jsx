@@ -16,33 +16,37 @@ import 'swiper/css/navigation';
 
 export function HomeAdm() {
 
-    const [search] = useState("");
+    const [search, setSearch] = useState("");
+
     const [dishes, setDishes] = useState({ meals: [], desserts: [] });
+
+    const handleSearch = (value) => {
+        setSearch(value);
+    }
 
     useEffect(() => {
         async function fetchDishes() {
             try {
-                const response = await api.get(`/dishes?search=${search}`);
+                const response = await api.get(`/dishes?title=${search}`);
+
                 const meals = response.data.filter(dish => dish.category === "meals");
                 const desserts = response.data.filter(dish => dish.category === "desserts");
                 const drinks = response.data.filter(dish => dish.category === "drinks");
 
                 setDishes({ meals, desserts, drinks });
             } catch (error) {
-                console.error("Error fetching dishes:", error.message);
-
+                console.error("Erro ao carregar pratos:", error.message);
             }
         }
 
         fetchDishes();
-    },[]);
+    },[search]);
     
 
     return(
         <Container>
 
-            <HeaderAdmin />
-
+            <HeaderAdmin onSearch={handleSearch} />
 
             <Content>
 
