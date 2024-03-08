@@ -17,7 +17,6 @@ import 'swiper/css/navigation';
 export function HomeAdm() {
 
     const [search, setSearch] = useState("");
-
     const [dishes, setDishes] = useState({ meals: [], desserts: [] });
 
     const handleSearch = (value) => {

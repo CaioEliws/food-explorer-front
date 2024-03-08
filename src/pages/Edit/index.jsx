@@ -54,6 +54,7 @@ export function Edit() {
 
         if(confirm) {
             await api.delete(`/dishes/${params.id}`)
+            alert("Prato removido com sucesso!");
             navigate("/")
         }
     }
@@ -153,6 +154,7 @@ export function Edit() {
                                 title={"Imagem do prato"}
                                 text={fileName || "Selecione imagem"}
                                 id="image"
+                                value={fileName}
                                 onChange={handleChangeImage}
                             />
                         </SectionTwo>                 
