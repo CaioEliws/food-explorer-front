@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import fruitSvg from '../../assets/fruit.svg';
-
 
 export const Container = styled.div`
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 `;
 
@@ -15,34 +15,11 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
 
-  .banner-container {
-    margin-top: 150px;
-    width: 100%;
-    height: 260px;
-    background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
-    padding-right: 100px;
+  @media (max-width: 1024px) {
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
 
-    border-radius: 8px;
-
-    margin-bottom: 60px;
-  }
-
-  .banner-img {
-    position: absolute;
-    top: 127px;
-    left: 330px;
-
-    background: url(${fruitSvg}) no-repeat center bottom;
-    height: 400px;
-    width: 600px;
-  }
-
-  .banner-text {
-    text-align: end;
-    padding-top: 10%;
-
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
+    max-width: 100%;
   }
 
   .swiper-button-prev::after {
@@ -62,7 +39,7 @@ export const Content = styled.div`
     height: 100%;
     z-index: 1;
     bottom: 0;
-    left: 0;    
+    left: 0;
   }
 
   .swiper::before {
@@ -77,3 +54,65 @@ export const Content = styled.div`
     right: 0;  
   }
 `;
+
+export const Banner = styled.div`
+  margin-top: 16rem;
+  margin-bottom: 6rem;
+
+  height: 26rem;
+  display: flex;
+  border-radius: 0.8rem;
+
+  background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
+
+  @media (max-width: 1024px) {
+    width: 376px;
+    height: 120px;
+  }
+
+  img {
+    width: 62rem;
+    height: 40rem;
+    object-fit: cover;
+    margin-top: -14rem;
+    margin-left: -5rem;
+    overflow: visible;
+    opacity: 0.8;
+
+    @media (max-width: 1024px) {
+      width: 20rem;
+      height: 15rem;
+
+      margin-top: -3rem;
+      margin-left: -2rem;
+    }
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3rem;
+
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 4rem;
+      font-weight: 600;
+
+      @media (max-width: 1024px) {
+        font-size: 1.8rem
+      }
+    }
+
+    p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 140%;
+      
+      @media (max-width: 1024px) {
+        font-size: 1.2rem
+      }
+    }
+  }
+`

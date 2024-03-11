@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 
-import { Container, Content } from "./styles";
+import { Container, Content, Banner } from "./styles";
 
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { Section } from '../../components/Section'
 import { Dish } from '../../components/Dish'
+
+import BannerImg from "../../assets/BannerImg.png"
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
@@ -42,16 +44,13 @@ export function Home() {
             <Header />
 
             <Content>
-
-                <div className="banner-container">
-                    <div className="banner-img">
+                <Banner>
+                    <img src={BannerImg} alt="Imagem do banner" />
+                    <div>
+                    <h2>Sabores inigualáveis</h2>
+                    <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
                     </div>
-                    
-                    <div className="banner-text">
-                        <h1>Sabores inigualáveis</h1>
-                        <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
-                    </div>
-                </div>
+                </Banner>
 
                 <Section title="Refeições">
 

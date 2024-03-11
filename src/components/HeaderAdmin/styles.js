@@ -7,8 +7,8 @@ export const Container = styled.header`
     align-items: center;
     justify-content: center;
 
-    gap: 32px;
-    padding: 24px 124px;
+    gap: 3.2rem;
+    padding: 2.4rem 12.4rem;
 
     background-color: ${({ theme }) => theme.COLORS.DARK_600};
 
@@ -18,9 +18,6 @@ export const Container = styled.header`
         border: 0;
         padding: 0 16px;
         border-radius: 10px;
-        font-weight: 500;
-
-        /* font-size: 16   px; */
 
         display: flex;
         align-items: center;
@@ -50,8 +47,7 @@ export const Menu = styled.div`
     position: relative;
     cursor: pointer;
 
-    width: 10%;
-    height: 100%;
+    width: 25%;
 
     color: white;
 

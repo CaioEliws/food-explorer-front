@@ -24,7 +24,12 @@ export function DishAdm({ data, ...rest}) {
             />
 
 
-            <Link to={`/details/${data.id}`}> {data.title} <IoIosArrowForward /></Link>
+            <Link 
+                to={`/details/${data.id}`}
+            >
+                {data.title} <IoIosArrowForward
+            />
+            </Link>
 
             <p> 
             {data.description.length > 50 ? `${data.description.slice(0, 100)}...` : data.description} 

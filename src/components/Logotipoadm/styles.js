@@ -15,6 +15,11 @@ export const Container = styled.button`
     
     > img {
         margin-right: 11px;
+        
+        @media (max-width: 1024px) {
+            width: 8rem;
+            height: 8rem;
+        }
     }
     
     > p {

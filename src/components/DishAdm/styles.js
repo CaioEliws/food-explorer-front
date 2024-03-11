@@ -7,13 +7,11 @@ export const Container = styled.div`
     background-color: ${({ theme }) => theme.COLORS.DARK_200};
 
     border-radius: 8px;
-    padding: 24px;
-
-    gap: 15px;
-
-    border: none;
+    padding: 2.4rem;
 
     height: 100%;
+
+    gap: 15px;
 
     .btnFavorite {
       position: absolute;
@@ -31,10 +29,11 @@ export const Container = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
+      font-size: 1.8rem;
     }
 
     > p {
-      font-size: 12px;
+      font-size: 1.2rem;
       height: 42px;
       color: ${({ theme }) => theme.COLORS.WHITE_400};
     }
@@ -44,48 +43,8 @@ export const Container = styled.div`
     }
 
     img {
-      width: 176px;
-      height: 176px;
+      width: 18rem;
+      height: 18rem;
       object-fit: cover;
     }
-
-    .btnScore {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        font-size: 20px;
-        gap: 10px;
-
-    > #btnMinus {
-      border: none;
-      background: none;
-      color: white;
-    }
-
-    > span {
-        color: ${({ theme }) => theme.COLORS.WHITE};
-        font-size: 20px;
-    }
-
-    > #btnPlus {
-        border: none;
-        background: none;
-        color: white;
-    }
-
-    > #btnAdd {
-        width: 100px;
-        height: 40px;
-        border: 0;
-        border-radius: 10px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        background-color: ${({ theme }) => theme.COLORS.TOMATO};
-        color: ${({ theme }) => theme.COLORS.WHITE};
-    }
-  }
 `;
