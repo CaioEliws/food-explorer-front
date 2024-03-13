@@ -34,16 +34,14 @@ export function DetailsAdm() {
             <HeaderAdmin />
             
             <Content>
-                <header>
-                    <ButtonExit />
-                </header>
+                <ButtonExit />
                 
                 {
                     data &&
                     <main>
                         <img 
                             src={avatarUrl} 
-                            alt={data.title} 
+                            alt={data.title}
                         />
 
                         <div>
@@ -64,12 +62,14 @@ export function DetailsAdm() {
                                 </section>
                             }
 
-                            <Link 
-                                to={`/edit/${data.id}`}
-                                id="btnEdit"
-                            > 
-                                Editar prato 
-                            </Link>
+                            <footer>
+                                <Link 
+                                    to={`/edit/${data.id}`}
+                                    id="btnEdit"
+                                > 
+                                    Editar prato 
+                                </Link>
+                            </footer>
                         </div>
                     </main>
                 }

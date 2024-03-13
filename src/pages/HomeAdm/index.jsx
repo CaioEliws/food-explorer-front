@@ -21,9 +21,48 @@ export function HomeAdm() {
     const [search, setSearch] = useState("");
     const [dishes, setDishes] = useState({ meals: [], desserts: [] });
 
+    const [slidesPerView, setSlidesPerView] = useState(4);
+    const [slidesSpace, setSlideSpace] = useState(27);
+
     const handleSearch = (value) => {
         setSearch(value);
     }
+
+    const reziseSpace = () => {
+        if (window.innerWidth <= 768) {
+            setSlideSpace(50);
+        } else {
+            setSlideSpace(27);
+        }
+    }
+
+    const reziseSlides = () => {
+        if (window.innerWidth <= 768) {
+          setSlidesPerView(2);
+        } else {
+          setSlidesPerView(4);
+        }
+    };
+
+    useEffect(() => {
+        reziseSlides();
+      
+        window.addEventListener("resize", reziseSlides);
+      
+        return () => {
+          window.removeEventListener("resize", reziseSlides);
+        };
+    }, []);
+
+    useEffect(() => {
+        reziseSpace();
+      
+        window.addEventListener("resize", reziseSpace);
+      
+        return () => {
+          window.removeEventListener("resize", reziseSpace);
+        };
+    }, []);
 
     useEffect(() => {
         async function fetchDishes() {
@@ -61,8 +100,8 @@ export function HomeAdm() {
                 <Section title="Refeições">
 
                     <Swiper
-                        slidesPerView={4}
-                        spaceBetween={27}
+                        slidesPerView={slidesPerView}
+                        spaceBetween={slidesSpace}
                         loop={true}
                         pagination={{
                             clickable: true,
@@ -88,8 +127,8 @@ export function HomeAdm() {
 
                 <Section title="Sobremesas">
                     <Swiper 
-                        slidesPerView={4}
-                        spaceBetween={27}
+                        slidesPerView={slidesPerView}
+                        spaceBetween={slidesSpace}
                         loop={true}
                         pagination={{
                             clickable: true,
@@ -112,10 +151,10 @@ export function HomeAdm() {
                     </Swiper>
                 </Section>
 
-                {/* <Section title="Drinks">
+                <Section title="Drinks">
                     <Swiper 
-                        slidesPerView={4}
-                        spaceBetween={27}
+                        slidesPerView={slidesPerView}
+                        spaceBetween={slidesSpace}
                         loop={true}
                         pagination={{
                             clickable: true,
@@ -136,7 +175,7 @@ export function HomeAdm() {
                         }
 
                     </Swiper>
-                </Section> */}
+                </Section>
 
 
             </Content>
@@ -146,17 +185,3 @@ export function HomeAdm() {
         </Container>
     )
 }
-{/* <div className="content">
-
-    <img src="" alt="" />
-    <h1>Spaguetti Gambe</h1>
-    <p>Massa fresca com camarões e pesto. </p>
-    <h2>R$ 79,97</h2>
-    <div className="buttons">
-        <FaMinus />
-        01
-        <FaPlus />
-        <Button title="incluir" />
-    </div>
-        
-</div> */}

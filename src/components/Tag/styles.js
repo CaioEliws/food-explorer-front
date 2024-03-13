@@ -8,8 +8,7 @@ export const Container = styled.span`
 
     border-radius: 5px;
 
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 
     white-space: nowrap;
 

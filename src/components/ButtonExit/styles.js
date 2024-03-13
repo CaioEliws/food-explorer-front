@@ -8,5 +8,12 @@ export const Container = styled(Link)`
     background: none;
     border: none;
 
+    margin-top: 3rem;
+    font-size: 2.4rem;
+
     color: ${({ theme}) => theme.COLORS.WHITE};
+
+    @media (max-width: 425px) {
+        font-size: 2rem; 
+    }
 `;

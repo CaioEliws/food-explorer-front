@@ -14,6 +14,26 @@ export const Container = styled.footer`
 
     padding: 24px 124px;
 
+    @media (max-width: 425px) {
+        padding: 3.0rem;
+
+        > h2 {
+            font-size: 1.2rem;
+        }
+
+        > div > h1 {
+            font-size: 1.6rem;
+
+            display: flex;
+            align-items: center;
+        }
+
+        > div > img {
+            width: 1.6rem;
+            width: 1.6rem;
+        }
+    }
+
     > div {
         display: flex;
         gap: 11px;

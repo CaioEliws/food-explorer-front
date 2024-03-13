@@ -10,6 +10,8 @@ import { api } from "../../services/api";
 export function DishAdm({ data, ...rest}) {
     const avatarUrl = data.image && `${api.defaults.baseURL}/files/${data.image}`;
 
+    const MobileScreen = window.innerWidth > 768;
+
     return(
         <Container {...rest}>
             <Link 
@@ -31,9 +33,12 @@ export function DishAdm({ data, ...rest}) {
             />
             </Link>
 
-            <p> 
-            {data.description.length > 50 ? `${data.description.slice(0, 100)}...` : data.description} 
-            </p>
+            {
+                MobileScreen && ( 
+                <p> 
+                    {data.description.length > 50 ? `${data.description.slice(0,    100)}...` : data.description} 
+                </p>
+            )}
 
             <h2>R${data.price}</h2>
 

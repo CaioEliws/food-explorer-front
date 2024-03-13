@@ -15,7 +15,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 425px) {
     padding-left: 2.4rem;
     padding-right: 2.4rem;
 
@@ -28,6 +28,13 @@ export const Content = styled.div`
 
   .swiper-button-next::after {
     color: white;
+  }
+
+  @media (max-width: 425px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: none;
+    }
   }
 
   .swiper::after {
@@ -53,10 +60,17 @@ export const Content = styled.div`
     bottom: 0;
     right: 0;  
   }
+
+  @media (max-width: 425px) {
+    .swiper::before,
+    .swiper::after {
+      display: none;
+    }
+  }
 `;
 
 export const Banner = styled.div`
-  margin-top: 16rem;
+  margin-top: 18rem;
   margin-bottom: 6rem;
 
   height: 26rem;
@@ -65,24 +79,30 @@ export const Banner = styled.div`
 
   background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
 
-  @media (max-width: 1024px) {
-    width: 376px;
+  @media (max-width: 425px) {
+    margin-top: 8rem;
+    width: 100%;
     height: 120px;
+
+    padding-left: 1.5rem;
+
+    margin-left: 1rem;
   }
 
   img {
-    width: 62rem;
     height: 40rem;
+
     object-fit: cover;
+    overflow: visible;
+
     margin-top: -14rem;
     margin-left: -5rem;
-    overflow: visible;
-    opacity: 0.8;
 
-    @media (max-width: 1024px) {
-      width: 20rem;
+    @media (max-width: 425px) {
+      width: 18rem;
       height: 15rem;
 
+      margin-right: 1rem;
       margin-top: -3rem;
       margin-left: -2rem;
     }
@@ -99,8 +119,8 @@ export const Banner = styled.div`
       font-size: 4rem;
       font-weight: 600;
 
-      @media (max-width: 1024px) {
-        font-size: 1.8rem
+      @media (max-width: 425px) {
+        font-size: 1.6rem
       }
     }
 
@@ -110,8 +130,10 @@ export const Banner = styled.div`
       font-weight: 400;
       line-height: 140%;
       
-      @media (max-width: 1024px) {
-        font-size: 1.2rem
+      @media (max-width: 425px) {
+        font-size: 1rem;
+        padding-right: 1rem;
+        color: ${({ theme }) => theme.COLORS.WHITE_300};
       }
     }
   }

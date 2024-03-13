@@ -1,21 +1,33 @@
-import { Container, Logout, Menu } from "./styles";
+import { Container, Logout, Menu, MenuMobile, CloseButton } from "./styles";
 
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/auth";
+import { useState } from "react";
 
 import { Input } from "../Input";
 import { Logotipoadm } from "../Logotipoadm";
+import { Footer } from "../Footer";
 
-import { IoIosSearch, IoMdMenu } from "react-icons/io";
+import { IoIosSearch, IoMdClose,IoMdMenu } from "react-icons/io";
 
 export function HeaderAdmin({ onSearch }) {
   const { signOut } = useAuth();
 
-  const MobileScreen = window.innerWidth >= 1024;
+  const [isMenuVisible, setMenuVisible] = useState(false);
+
+  const MobileScreen = window.innerWidth > 768;
 
   const handleMenuClick = () => {
     const list = document.getElementById("list");
-    list.classList.toggle("visible");
+    list.classList.toggle("visible", !isMenuVisible);
+    setMenuVisible(!isMenuVisible);
+  };
+  
+
+  const handleMenuClickMobile = () => {
+    const list = document.getElementById("list");
+    list.classList.toggle("visible", !isMenuVisible);
+    setMenuVisible(!isMenuVisible);
   };
 
   const handleSearch = (value) => {
@@ -23,7 +35,7 @@ export function HeaderAdmin({ onSearch }) {
       onSearch(value);
       console.log("Pesquisando por:", value);
     }
-}
+  }
 
   return (
     <Container>
@@ -39,31 +51,9 @@ export function HeaderAdmin({ onSearch }) {
 
           <Link children="Novo Prato" to="/new" />
 
-          <Menu onClick={handleMenuClick}>
-            <IoMdMenu />
-            <ul id="list">
-              <li>
-                <Link to="/">Pedidos</Link>
-              </li>
-              <li>
-                <Link to="/profile">Profile</Link>
-              </li>
-              <li>
-                <Link to="/">Historico de pedidos</Link>
-              </li>
-              <li>
-                <Logout onClick={signOut}>Sair</Logout>
-              </li>
-            </ul>
-          </Menu>
-        </>
-      )}
-      {!MobileScreen && (
-        <>
-          <Logotipoadm />
+          <Menu>
+            <IoMdMenu onClick={handleMenuClick} />
 
-          <Menu onClick={handleMenuClick}>
-            <IoMdMenu />
             <ul id="list">
               <li>
                 <Link to="/">Pedidos</Link>
@@ -81,6 +71,52 @@ export function HeaderAdmin({ onSearch }) {
           </Menu>
         </>
       )}
+
+      {
+        !MobileScreen && (
+          <>
+            <Logotipoadm />
+
+            <MenuMobile>
+              <IoMdMenu onClick={handleMenuClickMobile} />
+
+              <ul id="list" className={isMenuVisible ? "visible" : ""}>
+                {isMenuVisible && (
+                  <>
+                    <header>
+                      <CloseButton onClick={handleMenuClick}><IoMdClose /></CloseButton>
+                      <h2>Menu</h2>
+                    </header>
+
+                    <div>
+                      <Input
+                        placeholder="Busque por pratos ou ingredientes"
+                        icon={IoIosSearch}
+                        onChange={(e) => handleSearch(e.target.value)}
+                      />
+
+                      <li>
+                        <Link to="/">Pedidos</Link>
+                      </li>
+                      <li>
+                        <Link to="/profile">Profile</Link>
+                      </li>
+                      <li>
+                        <Link to="/">Historico de pedidos</Link>
+                      </li>
+                      <li>
+                        <Logout onClick={signOut}>Sair</Logout>
+                      </li>
+                    </div>
+
+                    <Footer />
+                  </>
+                )}
+              </ul>
+            </MenuMobile>
+          </>
+        )
+      }
     </Container>
   );
 }

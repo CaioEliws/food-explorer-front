@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import { HomeAdm } from '../pages/HomeAdm';
 import { DetailsAdm } from '../pages/DetailsAdm';
@@ -14,8 +14,6 @@ export function AdmRoutes() {
             <Route path="/edit/:id" element={<Edit />} />
             <Route path='/new' element={<New />} />
             <Route path='/profile' element={<ProfileAdm />} />
-
-            <Route path="*" element={ <Navigate to="/" /> } />
         </Routes>
     )
 }

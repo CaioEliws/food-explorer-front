@@ -13,15 +13,31 @@ export const Container = styled.div`
 
     gap: 15px;
 
+    @media (max-width: 425px) {
+      width: 20rem;
+      height: 30rem;
+      
+      padding: 24px;
+
+      justify-content: center;
+    }
+
     .btnFavorite {
       position: absolute;
-      right: 18px;
+      display: block;
+      right: 2rem;
 
       color: white;
       background: none;
       border: none;
 
       font-size: 30px;
+
+      @media (max-width: 425px) {
+        font-size: 2.4rem;
+        right: -1rem;
+        top: 1.6rem;
+      }
     }
 
     > a {
@@ -30,6 +46,10 @@ export const Container = styled.div`
       justify-content: center;
       align-items: center;
       font-size: 1.8rem;
+
+      @media (max-width: 425px) {
+        font-size: 1.4rem;
+      }
     }
 
     > p {
@@ -40,11 +60,20 @@ export const Container = styled.div`
 
     > h2 {
       color: ${({ theme }) => theme.COLORS.BLUE_LIGHT};
+
+      @media (max-width: 425px) {
+        font-size: 1.6rem;
+      }
     }
 
     img {
       width: 18rem;
       height: 18rem;
       object-fit: cover;
+
+      @media (max-width: 425px) {
+        width: 9rem;
+        height: 9rem;
+      }
     }
 `;

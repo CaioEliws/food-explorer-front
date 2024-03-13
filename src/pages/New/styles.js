@@ -1,28 +1,44 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
-  height: 100vh;
+    width: 100%;
+    height: 100vh;
 
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas:
-    "header"
-    "content"
-    "footer";
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "content"
+        "footer"
+    ;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
     
     .ingredientes {
-        width: 100%;
-        
         display: flex;
-        background-color: ${({ theme }) => theme.COLORS.DARK_900};
+        
+        min-width: 100%;
         min-height: 50px;
+        
         border-radius: 8px;
-        padding: 5px 10px;
-        /* justify-content: space-between; */
+        padding: 10px 10px;
         flex-wrap: wrap;
         
-        gap: 20px;
+        gap: 1.6rem;
+        background-color: ${({ theme }) => theme.COLORS.DARK_800};
+
+        @media (max-width: 425px) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.6rem;
+            justify-items: center;
+        }
     }
 
     .btnSave {
@@ -38,30 +54,52 @@ export const Container = styled.div`
 
         border-radius: 8px;
         border: none;
+
+        @media (max-width: 425px) {
+            width: 100%;
+            margin-bottom: 5rem;
+        }
     }
 
 `;
 
 export const Form = styled.form`
+    width: 100%;
     max-width: 1120px;
-    margin: 40px auto;
-    
-    display: flex;
-    flex-direction: column;
+    margin: 0 auto;
+
+    height: 100%;
+
+    font-family: 'Poppins', sans-serif;
     
     header {
-        padding-bottom: 40px;
+        padding-bottom: 20px;
         
         > h1 {
-            padding-top: 40px;
+            padding-top: 20px;
+
+            @media (max-width: 425px) {
+                font-size: 2.6rem;
+                color: ${({ theme }) => theme.COLORS.WHITE};
+            }
         }
-        
+
+        @media (max-width: 768px) {
+            margin-left: 3.2rem;
+        }
     }
     
     > div {
         display: flex;
         
         gap: 40px;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            margin-left: 3.2rem;
+            margin-right: 3.2rem;
+            gap: 0;
+        }
         
         select {
             width: 100%;
@@ -92,4 +130,4 @@ export const Form = styled.form`
             cursor: pointer;
         }
     }
-    `;
+`;

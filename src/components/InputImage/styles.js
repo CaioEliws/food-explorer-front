@@ -25,14 +25,18 @@ export const Container = styled.div`
 export const Content = styled.div`
   width: 100%;
   height: 50px;
+
   display: flex;
   justify-content: center;
+  align-items: center;
+
   gap: 10px;
   padding: 12px 14px;
-  cursor: pointer;
-
+  
   white-space: nowrap;
   
+  cursor: pointer;
+
   p {
     font-size: 16px;
     font-weight: 500;
@@ -41,7 +45,7 @@ export const Content = styled.div`
   }
 
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.COLORS.DARK_900};
+  background-color: ${({ theme }) => theme.COLORS.DARK_800};
 
 
   > input {

@@ -3,8 +3,6 @@ import { Container } from "./styles";
 import logoSvg from '../../assets/Logotipo.svg';
 import { useNavigate } from "react-router-dom";
 
-
-
 export function Logotipoadm() {
     const navigate = useNavigate();
 
