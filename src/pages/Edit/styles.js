@@ -33,7 +33,7 @@ export const Container = styled.div`
         gap: 1.6rem;
         background-color: ${({ theme }) => theme.COLORS.DARK_800};
 
-        @media (max-width: 425px) {
+        @media (max-width: 768px) {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1.6rem;
@@ -92,7 +92,7 @@ export const Form = styled.form`
         > h1 {
             padding-top: 20px;
 
-            @media (max-width: 425px) {
+            @media (max-width: 768px) {
                 font-size: 2.6rem;
                 color: ${({ theme }) => theme.COLORS.WHITE};
             }

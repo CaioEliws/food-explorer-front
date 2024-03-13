@@ -12,7 +12,7 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.COLORS.WHITE_400};
     font-size: 14px;
 
-    @media (max-width: 425px) {
+    @media (max-width: 768px) {
         font-size: 1.2rem; 
     }
     

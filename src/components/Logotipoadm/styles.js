@@ -8,7 +8,7 @@ export const Container = styled.button`
 
     white-space: nowrap;
 
-    @media (max-width: 425px) {
+    @media (max-width: 768px) {
         display: flex;
         align-items: center;
         gap: 1.2rem;

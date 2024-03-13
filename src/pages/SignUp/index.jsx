@@ -13,6 +13,8 @@ export function SignUp() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const MobileScreen = window.innerWidth > 768;
     
     const navigate = useNavigate();
 
@@ -44,7 +46,11 @@ export function SignUp() {
             </div>
 
             <Form>
-                <h1>Criar sua conta</h1>
+                {
+                    MobileScreen && (
+                        <h1>Crie sua conta</h1>
+                    )
+                }
 
                 <section>
                     <h2>Seu nome</h2>

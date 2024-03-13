@@ -2,12 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     margin: 0 auto;
     height: 100vh;
-
-    padding: 0 124px 0 124px;
 
     background-color: ${({ theme}) => theme.COLORS.DARK_400};
 
@@ -18,6 +16,25 @@ export const Container = styled.div`
         gap: 8px;
 
         font-size: 26px;
+
+        > h1 {
+            @media (max-width: 768px) {
+                font-size: 4.0rem;
+            }
+        }
+
+        > img {
+            width: 4rem;
+            height: 4rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        height: 100vh;
+        overflow: hidden;
+        
+        display: flex;
+        flex-direction: column;
     }
 `;
 
@@ -34,7 +51,11 @@ export const Form = styled.form`
     gap: 32px;
 
     > section {
-        width: 350px;
+        width: 300px;
+    }
+
+    @media (max-width: 768px) {
+        background-color: ${({ theme}) => theme.COLORS.DARK_400};
     }
 
     > section > h2 {

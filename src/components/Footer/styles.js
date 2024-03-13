@@ -9,12 +9,12 @@ export const Container = styled.footer`
 
     font-size: 14px;
 
-    background-color: ${({ theme }) => theme.COLORS.DARK_600};
+    background-color: ${({ theme }) => theme.COLORS.DARK_700};
     color: ${({ theme }) => theme.COLORS.WHITE_200};
 
     padding: 24px 124px;
 
-    @media (max-width: 425px) {
+    @media (max-width: 768px) {
         padding: 3.0rem;
 
         > h2 {

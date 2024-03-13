@@ -13,7 +13,7 @@ export const Container = styled(Link)`
 
     color: ${({ theme}) => theme.COLORS.WHITE};
 
-    @media (max-width: 425px) {
+    @media (max-width: 768px) {
         font-size: 2rem; 
     }
 `;

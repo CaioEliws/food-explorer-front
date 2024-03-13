@@ -39,38 +39,40 @@ export function HeaderAdmin({ onSearch }) {
 
   return (
     <Container>
-      {MobileScreen && (
-        <>
-          <Logotipoadm />
+      {
+        MobileScreen && (
+          <>
+            <Logotipoadm />
 
-          <Input
-            placeholder="Busque por pratos ou ingredientes"
-            icon={IoIosSearch}
-            onChange={(e) => handleSearch(e.target.value)}
-          />
+            <Input
+              placeholder="Busque por pratos ou ingredientes"
+              icon={IoIosSearch}
+              onChange={(e) => handleSearch(e.target.value)}
+            />
 
-          <Link children="Novo Prato" to="/new" />
+            <Link children="Novo Prato" to="/new" />
 
-          <Menu>
-            <IoMdMenu onClick={handleMenuClick} />
+            <Menu>
+              <IoMdMenu onClick={handleMenuClick} />
 
-            <ul id="list">
-              <li>
-                <Link to="/">Pedidos</Link>
-              </li>
-              <li>
-                <Link to="/profile">Profile</Link>
-              </li>
-              <li>
-                <Link to="/">Historico de pedidos</Link>
-              </li>
-              <li>
-                <Logout onClick={signOut}>Sair</Logout>
-              </li>
-            </ul>
-          </Menu>
-        </>
-      )}
+              <ul id="list">
+                <li>
+                  <Link to="/">Pedidos</Link>
+                </li>
+                <li>
+                  <Link to="/profile">Profile</Link>
+                </li>
+                <li>
+                  <Link to="/">Historico de pedidos</Link>
+                </li>
+                <li>
+                  <Logout onClick={signOut}>Sair</Logout>
+                </li>
+              </ul>
+            </Menu>
+          </>
+        )
+      }
 
       {
         !MobileScreen && (
@@ -96,10 +98,13 @@ export function HeaderAdmin({ onSearch }) {
                       />
 
                       <li>
-                        <Link to="/">Pedidos</Link>
+                        <Link to="/profile">Profile</Link>
                       </li>
                       <li>
-                        <Link to="/profile">Profile</Link>
+                        <Link to="/new">Novo Prato</Link>
+                      </li>
+                      <li>
+                        <Link to="/">Pedidos</Link>
                       </li>
                       <li>
                         <Link to="/">Historico de pedidos</Link>

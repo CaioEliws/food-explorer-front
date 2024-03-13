@@ -1,36 +1,49 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    display: grid;
-    grid-template-rows: auto 1fr auto;
+    width: 100%;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 `;
 
 export const Content = styled.div`
-    width: 1120px;
+    width: 100%;
+    max-width: 1120px;
     margin: 0 auto;
+    flex: 1;
 
     display: flex;
     flex-direction: column;
 
     font-family: 'Poppins', sans-serif;
 
-    > header {
-        width: 100%;
-        display: flex;
-        justify-content: start;
+    @media (max-width: 768px) {
+        padding-left: 2.4rem;
+        padding-right: 2.4rem;
 
-        margin-top: 60px;
+        max-width: 100%;
     }
 
     > main {
         display: flex;
         margin-top: 60px;
 
+        @media (max-width: 768px) {
+            flex-direction: column;
+            margin-top: 3rem;
+            align-items: center;
+        }
+
         > img {
             width: 400px;
             height: 400px;
             object-fit: cover;
+
+            @media (max-width: 768px) {
+                width: 26rem;
+                height: 26rem;
+            }
         }
     }
     
@@ -44,58 +57,115 @@ export const Content = styled.div`
 
         justify-content: center;
 
+        @media (max-width: 768px) {
+            align-items: center;
+            width: 100%;
+            flex: 1;
+        }
+
         h1, p {
             color: ${({ theme }) => theme.COLORS.WHITE_300};
+        }
+
+        h1 {
+            @media (max-width: 768px) {
+                font-size: 2.6rem;
+                text-align: center;
+                margin-top: 1.6rem;
+            }
+        }
+
+        p {
+            @media (max-width: 768px) {
+                font-size: 1.6rem;
+                text-align: center;
+            }
         }
 
         > section {
             display: flex;
             gap: 8px;
+
+            @media (max-width: 768px) {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2.4rem;
+
+                margin-left: 2.5rem;
+                margin-right: 2.5rem;
+            }
         }
 
-    }
+        > footer {
+            margin-top: 3.8rem;
+            width: 15rem;
 
+            @media (max-width: 768px) {
+                width: 100%;
+            }
 
-    .btnsScore {
-        display: flex;
-        align-items: center;
+            > #btnEdit {
+                border: 0;
+                border-radius: 5px;
+                
+                flex-wrap: nowrap;
+                
+                font-size: 14px;
+                
+                display: flex;
+                padding: 12px 24px;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+        
+                background-color: ${({ theme }) => theme.COLORS.TOMATO};
+                color: ${({ theme }) => theme.COLORS.WHITE};
 
-        font-size: 20px;
-        gap: 10px;
+                margin-bottom: 5rem;
+            }
+        }
 
-        > #btnScore {
-            border: none;
-            background: none;
-            color: white;
-
-            align-items: center;
+        .btnsScore {
             display: flex;
+            align-items: center;
+
             font-size: 20px;
-        }
+            gap: 10px;
 
-        > span {
-            color: ${({ theme }) => theme.COLORS.WHITE};
-            font-size: 24px;
-        }
+            margin-bottom: 5rem;
 
-        > #btnAdd {
-            border: 0;
-            border-radius: 5px;
+            > #btnScore {
+                border: none;
+                background: none;
+                color: white;
 
-            margin-left: 33px;
-            
-            max-width: 40%;
-            
-            font-size: 14px;
+                align-items: center;
+                display: flex;
+                font-size: 20px;
+            }
 
-            display: flex;
-            padding: 12px 24px;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
+            > span {
+                color: ${({ theme }) => theme.COLORS.WHITE};
+                font-size: 24px;
+            }
 
-            background-color: ${({ theme }) => theme.COLORS.TOMATO};
-            color: ${({ theme }) => theme.COLORS.WHITE};
+            > #btnAdd {
+                border: 0;
+                border-radius: 5px;
+
+                margin-left: 33px;
+                
+                font-size: 14px;
+
+                display: flex;
+                padding: 12px 24px;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+
+                background-color: ${({ theme }) => theme.COLORS.TOMATO};
+                color: ${({ theme }) => theme.COLORS.WHITE};
+            }
         }
     }
 `;

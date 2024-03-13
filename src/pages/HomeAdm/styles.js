@@ -15,7 +15,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 425px) {
+  @media (max-width: 768px) {
     padding-left: 2.4rem;
     padding-right: 2.4rem;
 
@@ -30,7 +30,7 @@ export const Content = styled.div`
     color: white;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 768px) {
     .swiper-button-prev,
     .swiper-button-next {
       display: none;
@@ -61,7 +61,7 @@ export const Content = styled.div`
     right: 0;  
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 768px) {
     .swiper::before,
     .swiper::after {
       display: none;
@@ -79,7 +79,7 @@ export const Banner = styled.div`
 
   background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
 
-  @media (max-width: 425px) {
+  @media (max-width: 768px) {
     margin-top: 8rem;
     width: 100%;
     height: 120px;
@@ -98,7 +98,7 @@ export const Banner = styled.div`
     margin-top: -14rem;
     margin-left: -5rem;
 
-    @media (max-width: 425px) {
+    @media (max-width: 768px) {
       width: 18rem;
       height: 15rem;
 
@@ -119,7 +119,7 @@ export const Banner = styled.div`
       font-size: 4rem;
       font-weight: 600;
 
-      @media (max-width: 425px) {
+      @media (max-width: 768px) {
         font-size: 1.6rem
       }
     }
@@ -130,7 +130,7 @@ export const Banner = styled.div`
       font-weight: 400;
       line-height: 140%;
       
-      @media (max-width: 425px) {
+      @media (max-width: 768px) {
         font-size: 1rem;
         padding-right: 1rem;
         color: ${({ theme }) => theme.COLORS.WHITE_300};

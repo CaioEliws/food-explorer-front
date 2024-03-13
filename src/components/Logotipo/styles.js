@@ -15,4 +15,17 @@ export const Container = styled.button`
     > img {
         margin-right: 11px;
     }
+
+    @media (max-width: 768px) {
+        display: flex;
+
+        > img {
+            width: 2.4rem;
+            height: 2.4rem;
+        }
+
+        > h1 {
+            font-size: 2.1rem;
+        }
+    }
 `;

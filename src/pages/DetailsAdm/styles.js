@@ -18,7 +18,7 @@ export const Content = styled.div`
 
     font-family: 'Poppins', sans-serif;
 
-    @media (max-width: 425px) {
+    @media (max-width: 768px) {
         padding-left: 2.4rem;
         padding-right: 2.4rem;
 
@@ -29,7 +29,7 @@ export const Content = styled.div`
         display: flex;
         margin-top: 60px;
 
-        @media (max-width: 425px) {
+        @media (max-width: 768px) {
             flex-direction: column;
             margin-top: 3rem;
             align-items: center;
@@ -40,7 +40,7 @@ export const Content = styled.div`
             height: 400px;
             object-fit: cover;
 
-            @media (max-width: 425px) {
+            @media (max-width: 768px) {
                 width: 26rem;
                 height: 26rem;
             }
@@ -57,7 +57,7 @@ export const Content = styled.div`
 
         justify-content: center;
 
-        @media (max-width: 425px) {
+        @media (max-width: 768px) {
             align-items: center;
             width: 100%;
             flex: 1;
@@ -68,7 +68,7 @@ export const Content = styled.div`
         }
 
         h1 {
-            @media (max-width: 425px) {
+            @media (max-width: 768px) {
                 font-size: 2.6rem;
                 text-align: center;
                 margin-top: 1.6rem;
@@ -76,7 +76,7 @@ export const Content = styled.div`
         }
 
         p {
-            @media (max-width: 425px) {
+            @media (max-width: 768px) {
                 font-size: 1.6rem;
                 text-align: center;
             }
@@ -86,7 +86,7 @@ export const Content = styled.div`
             display: flex;
             gap: 8px;
 
-            @media (max-width: 425px) {
+            @media (max-width: 768px) {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 gap: 2.4rem;
@@ -100,7 +100,7 @@ export const Content = styled.div`
             margin-top: 3.8rem;
             width: 15rem;
 
-            @media (max-width: 425px) {
+            @media (max-width: 768px) {
                 width: 100%;
             }
 

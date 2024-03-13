@@ -16,6 +16,8 @@ export function SignIn() {
 
     const { signIn } = useAuth();
 
+    const MobileScreen = window.innerWidth > 768;
+
     function handleSignIn() {
         signIn({email, password});
     }
@@ -28,7 +30,11 @@ export function SignIn() {
             </div>
 
             <Content>
-                <h1>Faça Login</h1>
+                {
+                    MobileScreen && (
+                        <h1>Faça Login</h1>
+                    )
+                }
 
                 <section>
                     <h2>Email</h2>

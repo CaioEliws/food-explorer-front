@@ -14,10 +14,6 @@ export const Container = styled.div`
 
     @media (max-width: 768px) {
         width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
     }
     
     .ingredientes {
@@ -33,7 +29,7 @@ export const Container = styled.div`
         gap: 1.6rem;
         background-color: ${({ theme }) => theme.COLORS.DARK_800};
 
-        @media (max-width: 425px) {
+        @media (max-width: 768px) {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1.6rem;
@@ -55,7 +51,7 @@ export const Container = styled.div`
         border-radius: 8px;
         border: none;
 
-        @media (max-width: 425px) {
+        @media (max-width: 768px) {
             width: 100%;
             margin-bottom: 5rem;
         }
@@ -78,7 +74,7 @@ export const Form = styled.form`
         > h1 {
             padding-top: 20px;
 
-            @media (max-width: 425px) {
+            @media (max-width: 768px) {
                 font-size: 2.6rem;
                 color: ${({ theme }) => theme.COLORS.WHITE};
             }

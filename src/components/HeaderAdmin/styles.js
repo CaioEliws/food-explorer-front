@@ -7,7 +7,7 @@ export const Container = styled.header`
     justify-content: center;
     gap: 3.2rem;
     padding: 2.4rem 12.4rem;
-    background-color: ${({ theme }) => theme.COLORS.DARK_600};
+    background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
     a:nth-child(3) {
         width: 100%;

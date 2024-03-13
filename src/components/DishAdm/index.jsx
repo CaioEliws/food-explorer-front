@@ -28,6 +28,7 @@ export function DishAdm({ data, ...rest}) {
 
             <Link 
                 to={`/details/${data.id}`}
+                className="title"
             >
                 {data.title} <IoIosArrowForward
             />

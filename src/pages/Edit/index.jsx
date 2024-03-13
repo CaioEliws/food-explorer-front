@@ -154,7 +154,6 @@ export function Edit() {
                                 title={"Imagem do prato"}
                                 text={fileName || "Selecione imagem"}
                                 id="image"
-                                value={fileName}
                                 onChange={handleChangeImage}
                             />
                         </SectionTwo>                 

@@ -11,9 +11,9 @@ export const Container = styled.div`
 
     height: 100%;
 
-    gap: 15px;
+    gap: 25px;
 
-    @media (max-width: 425px) {
+    @media (max-width: 768px) {
       width: 20rem;
       height: 30rem;
       
@@ -33,7 +33,7 @@ export const Container = styled.div`
 
       font-size: 30px;
 
-      @media (max-width: 425px) {
+      @media (max-width: 768px) {
         font-size: 2.4rem;
         right: -1rem;
         top: 1.6rem;
@@ -47,7 +47,7 @@ export const Container = styled.div`
       align-items: center;
       font-size: 1.8rem;
 
-      @media (max-width: 425px) {
+      @media (max-width: 768px) {
         font-size: 1.4rem;
       }
     }
@@ -61,7 +61,7 @@ export const Container = styled.div`
     > h2 {
       color: ${({ theme }) => theme.COLORS.BLUE_LIGHT};
 
-      @media (max-width: 425px) {
+      @media (max-width: 768px) {
         font-size: 1.6rem;
       }
     }
@@ -71,9 +71,21 @@ export const Container = styled.div`
       height: 18rem;
       object-fit: cover;
 
-      @media (max-width: 425px) {
+      @media (max-width: 768px) {
         width: 9rem;
         height: 9rem;
       }
+    }
+
+    .title {
+        height: 3rem;
+
+        > svg {
+          font-size: 3rem;
+
+          @media (max-width: 768px) {
+            font-size: 1.4rem;
+          }
+        }
     }
 `;

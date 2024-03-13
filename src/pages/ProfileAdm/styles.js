@@ -7,12 +7,19 @@ export const Content = styled.div`
         width: 100%;
         height: 144px;
 
-        background: ${({ theme }) => theme.COLORS.BACKGROUND};
+        background: ${({ theme }) => theme.COLORS.DARK_700};
 
         display: flex;
         align-items: center;
 
         padding: 0 124px;
+
+        @media (max-width: 768px) {
+            > a {
+                position: absolute;
+                left: 20px;
+            }
+        }
     }
 `;
 
@@ -47,7 +54,7 @@ export const Avatar = styled.div`
         width: 48px;
         height: 48px;
 
-        background-color: ${({ theme }) => theme.COLORS.BLUE_DARK};
+        background-color: ${({ theme }) => theme.COLORS.DARK_900};
         
         border-radius: 50%;
         display: flex;
