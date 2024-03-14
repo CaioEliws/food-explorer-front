@@ -34,6 +34,13 @@ export function Edit() {
     const params = useParams();
     const navigate = useNavigate();
 
+    const [search, setSearch] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
+
+    const handleSearch = (value) => {
+        setSearch(value);
+    }
+
     function handleChangeImage(event) {
         const file = event.target.files[0];
         setImage(file);
@@ -108,6 +115,20 @@ export function Edit() {
         }
     }
 
+    useEffect(() => {
+        async function fetchDishes() {
+            try {
+                const response = await api.get(`/dishes?title=${search}`);
+
+                setSearchResults(response.data);
+            } catch (error) {
+                console.error("Erro ao carregar pratos:", error.message);
+            }
+        }
+
+        fetchDishes();
+    },[search]);
+
     useEffect(() => {    
         async function fetchDish() {
             try {
@@ -120,6 +141,8 @@ export function Edit() {
                 setPrice(dish.price);
                 setIngredients(dish.ingredients.map(ingredient => ingredient.name));
                 setDescription(dish.description);
+
+                setFileName(dish.image);
 
             } catch (error) {
                 if (error.response) {
@@ -135,7 +158,7 @@ export function Edit() {
 
     return(
         <Container>
-            <HeaderAdmin />
+            <HeaderAdmin onSearch={handleSearch} searchResults={searchResults} />
 
             <main>
                 <Form>

@@ -85,9 +85,14 @@ export const Form = styled.form`
     height: 100%;
 
     font-family: 'Poppins', sans-serif;
+
+    #id {
+        max-width: 100%;
+    }
     
     header {
         padding-bottom: 20px;
+        width: 34rem;
         
         > h1 {
             padding-top: 20px;

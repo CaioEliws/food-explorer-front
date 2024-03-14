@@ -19,6 +19,27 @@ export function Details() {
 
     const avatarUrl = data.image && `${api.defaults.baseURL}/files/${data.image}`;
 
+    const [search, setSearch] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
+
+    const handleSearch = (value) => {
+        setSearch(value);
+    }
+
+    useEffect(() => {
+        async function fetchDishes() {
+            try {
+                const response = await api.get(`/dishes?title=${search}`);
+
+                setSearchResults(response.data);
+            } catch (error) {
+                console.error("Erro ao carregar pratos:", error.message);
+            }
+        }
+
+        fetchDishes();
+    },[search]);
+
     useEffect(() => {
         async function fetchDish() {
             const response = await api.get(`/dishes/${params.id}`);
@@ -30,7 +51,7 @@ export function Details() {
 
     return (
         <Container>
-            <Header />
+            <Header onSearch={handleSearch} searchResults={searchResults} />
             
             <Content>
                 <ButtonExit />

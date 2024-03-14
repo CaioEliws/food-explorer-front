@@ -11,6 +11,7 @@ export const Content = styled.div`
     width: 100%;
     max-width: 1120px;
     margin: 0 auto;
+    margin-top: 6rem;
     flex: 1;
 
     display: flex;
@@ -21,6 +22,7 @@ export const Content = styled.div`
     @media (max-width: 425px) {
         padding-left: 2.4rem;
         padding-right: 2.4rem;
+        margin-top: 3rem;
 
         max-width: 100%;
     }

@@ -55,7 +55,15 @@ export function HeaderAdmin({ onSearch, searchResults }) {
                 searchResults && (
                   <SearchResult style={{ display: showSearchResults ? 'flex' : 'none' }}>
                     {searchResults.map((dish) => (
-                      <Link to={`/details/${dish.id}`} key={dish.id}>
+                      <Link 
+                        to={`/details/${dish.id}`} 
+                        key={dish.id}
+                        onClick={() => {
+                          setTimeout(() => {
+                              window.location.reload();
+                          }, 1); // Atraso de 1 segundo (1000 milissegundos)
+                        }}
+                      >
                         <img src={`${api.defaults.baseURL}/files/${dish.image}`} />
                         <p>{dish.title}</p>
                       </Link>
@@ -115,7 +123,11 @@ export function HeaderAdmin({ onSearch, searchResults }) {
                             searchResults && (
                               <SearchResult style={{ display: showSearchResults ? 'flex' : 'none' }}>
                                 {searchResults.map((dish) => (
-                                  <Link to={`/details/${dish.id}`} key={dish.id}>
+                                  <Link 
+                                    to={`/details/${dish.id}`} 
+                                    key={dish.id}
+                                    onClick={() => window.location.reload()}
+                                  >
                                     <img src={`${api.defaults.baseURL}/files/${dish.image}`} />
                                     <p>{dish.title}</p>
                                   </Link>

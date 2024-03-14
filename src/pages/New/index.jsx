@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { api } from "../../services/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { Container, Form } from "./styles";
 
@@ -17,8 +17,11 @@ import { Input } from "../../components/Input";
 
 
 export function New() {
+    const { id } = useParams();
+
     const [image, setImage] = useState("");
     const [fileName, setFileName] = useState("");
+    const [data, setData] = useState(null);
 
     const [title, setTitle] = useState("");
     
@@ -32,6 +35,36 @@ export function New() {
     const [newIngredient, setNewIngredient] = useState("");
 
     const navigate = useNavigate();
+
+    const [search, setSearch] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
+
+    const handleSearch = (value) => {
+        setSearch(value);
+    }
+
+    useEffect(() => {
+        async function fetchDishAdm() {
+            const response = await api.get(`/dishes/${id}`);
+            setData(response.data);
+        }
+
+        fetchDishAdm();
+    }, [id]);
+
+    useEffect(() => {
+        async function fetchDishes() {
+            try {
+                const response = await api.get(`/dishes?title=${search}`);
+
+                setSearchResults(response.data);
+            } catch (error) {
+                console.error("Erro ao carregar pratos:", error.message);
+            }
+        }
+
+        fetchDishes();
+    },[search]);
 
     function handleImageChange(e) {
         const file = e.target.files[0];
@@ -85,7 +118,7 @@ export function New() {
     
     return(
         <Container>
-            <HeaderAdmin />
+            <HeaderAdmin onSearch={handleSearch} searchResults={searchResults} />
 
             <main>
                 <Form>
