@@ -5,6 +5,7 @@ export const Container = styled.div`
     height: 50px;
     display: flex;
     align-items: center;
+    flex-direction: column;
 
     background-color: ${({ theme }) => theme.COLORS.DARK_800};
     
@@ -18,6 +19,7 @@ export const Container = styled.div`
 
     > input {
         width: 100%;
+        height: 100%;
         
         padding: 12px 14px;
         

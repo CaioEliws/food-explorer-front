@@ -9,9 +9,12 @@ export const Container = styled.div`
 
     margin-bottom: 50px;
 
-    > div {
-        display: flex;
+    > h2 {
+        color: ${({ theme }) => theme.COLORS.WHITE_400};
+        font-size: 3.2rem;
+    }
 
-        gap: 30px;
+    @media (max-width: 425px) {
+        font-size: 1.8rem;
     }
 `;

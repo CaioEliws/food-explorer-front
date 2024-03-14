@@ -20,8 +20,12 @@ export function Home() {
     const [search, setSearch] = useState("");
     const [dishes, setDishes] = useState({ meals: [], desserts: [] });
 
+    const [searchResults, setSearchResults] = useState([]);
+
     const [slidesPerView, setSlidesPerView] = useState(4);
     const [slidesSpace, setSlideSpace] = useState(27);
+
+    const [noResults, setNoResults] = useState(false);
 
     const handleSearch = (value) => {
         setSearch(value);
@@ -73,6 +77,14 @@ export function Home() {
                 const drinks = response.data.filter(dish => dish.category === "drinks");
 
                 setDishes({ meals, desserts, drinks });
+
+                const mealsResults = meals.length > 0;
+                const dessertsResults = desserts.length > 0;
+                const drinksResults = drinks.length > 0;
+
+                setNoResults({ meals: !mealsResults, desserts: !dessertsResults, drinks: !drinksResults });
+
+                setSearchResults(response.data);
             } catch (error) {
                 console.error("Erro ao carregar pratos:", error.message);
             }
@@ -84,7 +96,7 @@ export function Home() {
     return(
         <Container>
 
-            <Header onSearch={handleSearch} />
+            <Header onSearch={handleSearch} searchResults={searchResults} />
 
             <Content>
                 <Banner>
@@ -96,11 +108,12 @@ export function Home() {
                 </Banner>
 
                 <Section title="Refeições">
-
+                    {noResults.meals && (
+                        <h3 className="Results">Não foi possível encontrar nenhum prato!</h3>
+                    )}
                     <Swiper
                         slidesPerView={slidesPerView}
                         spaceBetween={slidesSpace}
-                        loop={true}
                         pagination={{
                             clickable: true,
                         }}
@@ -124,10 +137,12 @@ export function Home() {
                 </Section>
 
                 <Section title="Sobremesas">
+                    {noResults.meals && (
+                        <h3 className="Results">Não foi possível encontrar nenhum prato!</h3>
+                    )}
                     <Swiper 
                         slidesPerView={slidesPerView}
                         spaceBetween={slidesSpace}
-                        loop={true}
                         pagination={{
                             clickable: true,
                         }}
@@ -150,10 +165,12 @@ export function Home() {
                 </Section>
 
                 <Section title="Drinks">
+                    {noResults.meals && (
+                        <h3 className="Results">Não foi possível encontrar nenhum prato!</h3>
+                    )}
                     <Swiper 
                         slidesPerView={slidesPerView}
                         spaceBetween={slidesSpace}
-                        loop={true}
                         pagination={{
                             clickable: true,
                         }}

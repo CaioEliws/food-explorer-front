@@ -33,9 +33,8 @@ export function Details() {
             <Header />
             
             <Content>
-                <header>
-                    <ButtonExit />
-                </header>
+                <ButtonExit />
+                
                 {
                     data &&
                     <main>

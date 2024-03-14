@@ -21,8 +21,12 @@ export function HomeAdm() {
     const [search, setSearch] = useState("");
     const [dishes, setDishes] = useState({ meals: [], desserts: [] });
 
+    const [searchResults, setSearchResults] = useState([]);
+
     const [slidesPerView, setSlidesPerView] = useState(4);
     const [slidesSpace, setSlideSpace] = useState(27);
+
+    const [noResults, setNoResults] = useState(false);
 
     const handleSearch = (value) => {
         setSearch(value);
@@ -74,6 +78,14 @@ export function HomeAdm() {
                 const drinks = response.data.filter(dish => dish.category === "drinks");
 
                 setDishes({ meals, desserts, drinks });
+
+                const mealsResults = meals.length > 0;
+                const dessertsResults = desserts.length > 0;
+                const drinksResults = drinks.length > 0;
+
+                setNoResults({ meals: !mealsResults, desserts: !dessertsResults, drinks: !drinksResults });
+
+                setSearchResults(response.data);
             } catch (error) {
                 console.error("Erro ao carregar pratos:", error.message);
             }
@@ -86,7 +98,7 @@ export function HomeAdm() {
     return(
         <Container>
 
-            <HeaderAdmin onSearch={handleSearch} />
+            <HeaderAdmin onSearch={handleSearch} searchResults={searchResults} />
 
             <Content>
                 <Banner>
@@ -98,11 +110,12 @@ export function HomeAdm() {
                 </Banner>
 
                 <Section title="Refeições">
-
+                    {noResults.meals && (
+                        <h3 className="Results">Não foi possível encontrar nenhum prato!</h3>
+                    )}
                     <Swiper
                         slidesPerView={slidesPerView}
                         spaceBetween={slidesSpace}
-                        loop={true}
                         pagination={{
                             clickable: true,
                         }}
@@ -110,26 +123,21 @@ export function HomeAdm() {
                         modules={[Pagination, Navigation]}
                         className="swiper-wrapper"
                     >
-                        
-
-                        {
-                             dishes.meals && dishes.meals.map((dish) => {
-                                return (
-                                    <SwiperSlide key={String(dish.id)}>
-                                        <DishAdm data={dish} />
-                                    </SwiperSlide>
-                                );
-                            })
-                        }
-
+                        {dishes.meals && dishes.meals.map((dish) => (
+                            <SwiperSlide key={String(dish.id)}>
+                                <DishAdm data={dish} />
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
                 </Section>
 
                 <Section title="Sobremesas">
+                    {noResults.desserts && (
+                        <h3 className="Results">Não foi possível encontrar nenhum prato!</h3>
+                    )}
                     <Swiper 
                         slidesPerView={slidesPerView}
                         spaceBetween={slidesSpace}
-                        loop={true}
                         pagination={{
                             clickable: true,
                         }}
@@ -137,25 +145,21 @@ export function HomeAdm() {
                         modules={[Pagination, Navigation]}
                         className="swiper-wrapper"
                     >
-
-                        {
-                            dishes.desserts && dishes.desserts.map((dish) => {
-                                return (
-                                    <SwiperSlide key={String(dish.id)}>
-                                        <DishAdm data={dish} />
-                                    </SwiperSlide>
-                                );
-                            })
-                        }
-
+                        {dishes.desserts && dishes.desserts.map((dish) => (
+                            <SwiperSlide key={String(dish.id)}>
+                                <DishAdm data={dish} />
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
                 </Section>
 
                 <Section title="Drinks">
+                    {noResults.drinks && (
+                        <h3 className="Results">Não foi possível encontrar nenhum prato!</h3>
+                    )}
                     <Swiper 
                         slidesPerView={slidesPerView}
                         spaceBetween={slidesSpace}
-                        loop={true}
                         pagination={{
                             clickable: true,
                         }}
@@ -163,20 +167,13 @@ export function HomeAdm() {
                         modules={[Pagination, Navigation]}
                         className="swiper-wrapper"
                     >
-
-                        {
-                            dishes.drinks && dishes.drinks.map((dish) => {
-                                return (
-                                    <SwiperSlide key={String(dish.id)}>
-                                        <DishAdm data={dish} />
-                                    </SwiperSlide>
-                                );
-                            })
-                        }
-
+                        {dishes.drinks && dishes.drinks.map((dish) => (
+                            <SwiperSlide key={String(dish.id)}>
+                                <DishAdm data={dish} />
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
                 </Section>
-
 
             </Content>
 

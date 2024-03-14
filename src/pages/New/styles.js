@@ -12,7 +12,7 @@ export const Container = styled.div`
         "footer"
     ;
 
-    @media (max-width: 768px) {
+    @media (max-width: 425px) {
         width: 100%;
     }
     
@@ -29,7 +29,7 @@ export const Container = styled.div`
         gap: 1.6rem;
         background-color: ${({ theme }) => theme.COLORS.DARK_800};
 
-        @media (max-width: 768px) {
+        @media (max-width: 425px) {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1.6rem;
@@ -51,7 +51,7 @@ export const Container = styled.div`
         border-radius: 8px;
         border: none;
 
-        @media (max-width: 768px) {
+        @media (max-width: 425px) {
             width: 100%;
             margin-bottom: 5rem;
         }
@@ -74,13 +74,13 @@ export const Form = styled.form`
         > h1 {
             padding-top: 20px;
 
-            @media (max-width: 768px) {
+            @media (max-width: 425px) {
                 font-size: 2.6rem;
                 color: ${({ theme }) => theme.COLORS.WHITE};
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 425px) {
             margin-left: 3.2rem;
         }
     }
@@ -90,7 +90,7 @@ export const Form = styled.form`
         
         gap: 40px;
 
-        @media (max-width: 768px) {
+        @media (max-width: 425px) {
             flex-direction: column;
             margin-left: 3.2rem;
             margin-right: 3.2rem;

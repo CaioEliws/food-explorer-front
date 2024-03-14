@@ -18,7 +18,7 @@ export const Container = styled.div`
         font-size: 26px;
 
         > h1 {
-            @media (max-width: 768px) {
+            @media (max-width: 425px) {
                 font-size: 4.0rem;
             }
         }
@@ -29,7 +29,7 @@ export const Container = styled.div`
         }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 425px) {
         height: 100vh;
         overflow: hidden;
         
@@ -50,7 +50,7 @@ export const Content = styled.div`
 
     gap: 32px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 425px) {
         background-color: ${({ theme}) => theme.COLORS.DARK_400};
     }
 

@@ -73,7 +73,6 @@ export function Profile() {
                 <Input 
                     placeholder="Nome"
                     type="text"
-                    icon={FiUser}
                     value={name}
                     onChange={e => setName(e.target.value)}
                 />
@@ -81,7 +80,6 @@ export function Profile() {
                 <Input 
                     placeholder="E-mail"
                     type="text"
-                    icon={FiMail}
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                 />
@@ -89,14 +87,12 @@ export function Profile() {
                 <Input 
                     placeholder="Senha Atual"
                     type="password"
-                    icon={FiLock}
                     onChange={e => setPasswordOld(e.target.value)}
                 />
 
                 <Input 
                     placeholder="Nova Senha"
                     type="password"
-                    icon={FiLock}
                     onChange={e => setPasswordNew(e.target.value)}
                 />
 

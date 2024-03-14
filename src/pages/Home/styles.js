@@ -15,7 +15,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 768px) {
+  @media (max-width: 425px) {
     padding-left: 2.4rem;
     padding-right: 2.4rem;
 
@@ -38,7 +38,7 @@ export const Content = styled.div`
     color: white;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 425px) {
     .swiper-button-prev,
     .swiper-button-next {
       display: none;
@@ -50,7 +50,7 @@ export const Content = styled.div`
     background: linear-gradient(90deg, rgba(0,10,15,1) 0%, rgba(0,10,15,0) 100%);
     position: absolute;
     border-radius: .8rem;
-    width: 20%;
+    width: 10%;
     height: 100%;
     z-index: 1;
     bottom: 0;
@@ -62,14 +62,14 @@ export const Content = styled.div`
     background: linear-gradient(90deg, rgba(0.27,15,10,0) 0%, rgba(0,10,15,1) 100%);
     position: absolute;
     border-radius: .8rem;
-    width: 20%;
+    width: 10%;
     height: 100%;
     z-index: 2;
     bottom: 0;
     right: 0;  
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 425px) {
     .swiper::before,
     .swiper::after {
       display: none;
@@ -78,7 +78,7 @@ export const Content = styled.div`
 `;
 
 export const Banner = styled.div`
-  margin-top: 16rem;
+  margin-top: 18rem;
   margin-bottom: 6rem;
 
   height: 26rem;
@@ -87,7 +87,7 @@ export const Banner = styled.div`
 
   background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
 
-  @media (max-width: 768px) {
+  @media (max-width: 425px) {
     margin-top: 8rem;
     width: 100%;
     height: 120px;
@@ -98,15 +98,14 @@ export const Banner = styled.div`
   }
 
   img {
-    width: 62rem;
     height: 40rem;
+
     object-fit: cover;
+
     margin-top: -14rem;
     margin-left: -5rem;
-    overflow: visible;
-    opacity: 0.8;
 
-    @media (max-width: 768px) {
+    @media (max-width: 425px) {
       width: 18rem;
       height: 15rem;
 
@@ -127,7 +126,7 @@ export const Banner = styled.div`
       font-size: 4rem;
       font-weight: 600;
 
-      @media (max-width: 768px) {
+      @media (max-width: 425px) {
         font-size: 1.6rem
       }
     }
@@ -137,12 +136,12 @@ export const Banner = styled.div`
       font-size: 1.6rem;
       font-weight: 400;
       line-height: 140%;
-
-      @media (max-width: 768px) {
+      
+      @media (max-width: 425px) {
         font-size: 1rem;
         padding-right: 1rem;
         color: ${({ theme }) => theme.COLORS.WHITE_300};
       }
     }
   }
-`
+`;

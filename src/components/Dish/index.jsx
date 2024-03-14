@@ -14,6 +14,11 @@ export function Dish({ data, ...rest}) {
 
     const MobileScreen = window.innerWidth > 768;
 
+    const formatPrice = (price) => {
+        if (isNaN(price)) return '';
+        return price.toString().replace('.', ',');
+    };
+
     return(
         <Container {...rest}>
             <button className="btnFavorite"><IoMdHeartEmpty /></button>
@@ -38,7 +43,7 @@ export function Dish({ data, ...rest}) {
                 </p>
             )}
 
-            <h2>R${data.price}</h2>
+            <h2>R${formatPrice(data.price)}</h2> 
 
             <div className="btnScore">
                 <section>

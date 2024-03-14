@@ -14,7 +14,7 @@ export const Content = styled.div`
 
         padding: 0 124px;
 
-        @media (max-width: 768px) {
+        @media (max-width: 425px) {
             > a {
                 position: absolute;
                 left: 20px;

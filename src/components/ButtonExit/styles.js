@@ -13,7 +13,9 @@ export const Container = styled(Link)`
 
     color: ${({ theme}) => theme.COLORS.WHITE};
 
-    @media (max-width: 768px) {
-        font-size: 2rem; 
+    @media (max-width: 425px) {
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
     }
 `;

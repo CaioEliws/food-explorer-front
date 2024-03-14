@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.header`
     width: 100%;
@@ -10,12 +11,10 @@ export const Container = styled.header`
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
 `;
 
-export const Logout = styled.button `
-    background: none;
+export const Logout = styled(Link)`
     color: ${({ theme }) => theme.COLORS.WHITE};
-    border: none;
-    display: flex;
-    align-items: center;
+    text-decoration: none;
+    font-size: 1.6rem;
 `;
 
 export const Menu = styled.div`
@@ -146,4 +145,35 @@ export const CloseButton = styled.button`
 
     align-items: center;
     display: flex;
+`;
+
+export const SearchResult = styled.div`
+    position: relative;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    border-radius: 1rem;
+    background-color: ${({ theme }) => theme.COLORS.DARK_700};
+    padding: 1.6rem;
+
+    a {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        border-radius: 1rem;
+        text-decoration: none;
+        color: ${({ theme }) => theme.COLORS.WHITE};
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+            background-color: ${({ theme }) => theme.COLORS.DARK_900};
+        }
+    }
+
+    img {
+        width: 3rem;
+        height: 3rem;
+        object-fit: cover;
+    }
 `;

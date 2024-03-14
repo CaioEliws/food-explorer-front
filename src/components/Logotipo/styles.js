@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-
     color: ${({ theme }) => theme.COLORS.WHITE};
 
     border: none;
@@ -12,20 +8,43 @@ export const Container = styled.button`
 
     white-space: nowrap;
 
-    > img {
-        margin-right: 11px;
-    }
-
-    @media (max-width: 768px) {
+    @media (max-width: 425px) {
         display: flex;
+        align-items: center;
+        gap: 1.2rem;
 
-        > img {
+        > div {
+            align-items: center;
+        }
+
+        > div > h1 {
+            font-size: 2.1rem;
+        }
+
+        > div > img {
             width: 2.4rem;
             height: 2.4rem;
         }
+    }
+
+    > div {
+        display: flex;
+        gap: 12px;
 
         > h1 {
-            font-size: 2.1rem;
+            font-size: 2.4rem;
         }
+    }
+    
+    > img {
+        margin-right: 11px;
+    }
+    
+    > p {
+        display: flex;
+        justify-content: end;
+        font-size: 1.2rem;
+
+        color: ${({ theme }) => theme.COLORS.BLUE_LIGHT};
     }
 `;

@@ -15,7 +15,7 @@ export const Container = styled.div`
 
   border: none;
 
-  @media (max-width: 768px) {
+  @media (max-width: 425px) {
     width: 20rem;
     height: 30rem;
       
@@ -34,7 +34,7 @@ export const Container = styled.div`
 
     font-size: 30px;
       
-    @media (max-width: 768px) {
+    @media (max-width: 425px) {
       font-size: 2.4rem;
       right: -1rem;
       top: 1.6rem;
@@ -47,7 +47,7 @@ export const Container = styled.div`
     height: 176px;
     object-fit: cover;
 
-    @media (max-width: 768px) {
+    @media (max-width: 425px) {
       width: 9rem;
       height: 9rem;
     }
@@ -59,7 +59,7 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
 
-    @media (max-width: 768px) {
+    @media (max-width: 425px) {
       font-size: 1.4rem;
     }
   }
@@ -72,7 +72,7 @@ export const Container = styled.div`
   > h2 {
     color: ${({ theme }) => theme.COLORS.BLUE_LIGHT};
 
-    @media (max-width: 768px) {
+    @media (max-width: 425px) {
       font-size: 1.6rem;
     }
   }
@@ -85,7 +85,7 @@ export const Container = styled.div`
       font-size: 20px;
       gap: 10px;
 
-      @media (max-width: 768px) {
+      @media (max-width: 425px) {
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -131,7 +131,7 @@ export const Container = styled.div`
         background-color: ${({ theme }) => theme.COLORS.TOMATO};
         color: ${({ theme }) => theme.COLORS.WHITE};
 
-        @media (max-width: 768px) {
+        @media (max-width: 425px) {
           width: 100%;
         }
     }
@@ -143,7 +143,7 @@ export const Container = styled.div`
         > svg {
           font-size: 3rem;
 
-          @media (max-width: 768px) {
+          @media (max-width: 425px) {
             font-size: 1.4rem;
           }
         }

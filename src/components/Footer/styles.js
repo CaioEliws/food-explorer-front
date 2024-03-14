@@ -14,7 +14,7 @@ export const Container = styled.footer`
 
     padding: 24px 124px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 425px) {
         padding: 3.0rem;
 
         > h2 {
