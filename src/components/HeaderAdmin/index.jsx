@@ -61,7 +61,7 @@ export function HeaderAdmin({ onSearch, searchResults }) {
                         onClick={() => {
                           setTimeout(() => {
                               window.location.reload();
-                          }, 1); // Atraso de 1 segundo (1000 milissegundos)
+                          }, 1);
                         }}
                       >
                         <img src={`${api.defaults.baseURL}/files/${dish.image}`} />
@@ -126,7 +126,11 @@ export function HeaderAdmin({ onSearch, searchResults }) {
                                   <Link 
                                     to={`/details/${dish.id}`} 
                                     key={dish.id}
-                                    onClick={() => window.location.reload()}
+                                    onClick={() => {
+                                      setTimeout(() => {
+                                          window.location.reload();
+                                      }, 1);
+                                    }}
                                   >
                                     <img src={`${api.defaults.baseURL}/files/${dish.image}`} />
                                     <p>{dish.title}</p>

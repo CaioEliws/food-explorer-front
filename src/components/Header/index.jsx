@@ -56,7 +56,15 @@ export function Header({ onSearch, searchResults }) {
                             searchResults && (
                             <SearchResult style={{ display: showSearchResults ? 'flex' : 'none' }}>
                                 {searchResults.map((dish) => (
-                                <Link to={`/details/${dish.id}`} key={dish.id}>
+                                <Link 
+                                    to={`/details/${dish.id}`} 
+                                    key={dish.id}
+                                    onClick={() => {
+                                    setTimeout(() => {
+                                        window.location.reload();
+                                    }, 1);
+                                    }}
+                                >
                                     <img src={`${api.defaults.baseURL}/files/${dish.image}`} />
                                     <p>{dish.title}</p>
                                 </Link>
@@ -114,7 +122,15 @@ export function Header({ onSearch, searchResults }) {
                                             searchResults && (
                                             <SearchResult style={{ display: showSearchResults ? 'flex' : 'none' }}>
                                                 {searchResults.map((dish) => (
-                                                <Link to={`/details/${dish.id}`} key={dish.id}>
+                                                <Link 
+                                                    to={`/details/${dish.id}`} 
+                                                    key={dish.id}
+                                                    onClick={() => {
+                                                    setTimeout(() => {
+                                                        window.location.reload();
+                                                    }, 1);
+                                                    }}
+                                                >
                                                     <img src={`${api.defaults.baseURL}/files/${dish.image}`} />
                                                     <p>{dish.title}</p>
                                                 </Link>
