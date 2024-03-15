@@ -17,7 +17,7 @@ export function Details() {
 
     const params = useParams();
 
-    const avatarUrl = data.image && `${api.defaults.baseURL}/files/${data.image}`;
+    const dishURL = data.image && `${api.defaults.baseURL}/files/${data.image}`;
 
     const [search, setSearch] = useState("");
     const [searchResults, setSearchResults] = useState([]);
@@ -60,7 +60,7 @@ export function Details() {
                     data &&
                     <main>
                         <img 
-                            src={avatarUrl} 
+                            src={dishURL}
                             alt={data.title}
                         />
 

@@ -25,11 +25,13 @@ export function DishAdm({ data, ...rest}) {
                     <GoPencil />
             </Link>
 
-            <img
-                src={dishUrl}
-                alt="Dish Image"
-            />
-
+            <div className="swiper-slide">
+                <img src={dishUrl} 
+                    alt={data.title} 
+                    loading="lazy" 
+                />
+                <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+            </div>
 
             <Link 
                 to={`/details/${data.id}`}

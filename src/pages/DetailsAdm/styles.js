@@ -37,7 +37,7 @@ export const Content = styled.div`
             align-items: center;
         }
 
-        > img {
+        img {
             width: 400px;
             height: 400px;
             object-fit: cover;

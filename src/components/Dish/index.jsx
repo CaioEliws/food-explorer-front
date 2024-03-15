@@ -10,7 +10,7 @@ import { FaMinus } from "react-icons/fa";
 import { api } from "../../services/api";
 
 export function Dish({ data, ...rest}) {
-    const avatarUrl = data.image && `${api.defaults.baseURL}/files/${data.image}`;
+    const dishUrl = data.image && `${api.defaults.baseURL}/files/${data.image}`;
 
     const MobileScreen = window.innerWidth > 768;
 
@@ -23,10 +23,12 @@ export function Dish({ data, ...rest}) {
         <Container {...rest}>
             <button className="btnFavorite"><IoMdHeartEmpty /></button>
 
-            <img
-                src={avatarUrl}
-                alt={data.title}
-            />
+            <div className="swiper-slide">
+                <img src={dishUrl} 
+                alt={data.title} 
+                loading="lazy" />
+                <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+            </div>
 
 
             <Link 
