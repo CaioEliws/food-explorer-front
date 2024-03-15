@@ -36,7 +36,7 @@ https://food-explorereliws.netlify.app/
 - Cadastro de usuários e administrador
 - Pesquisa dos produtos
 - Menu
-- Excluir, Criar, Atualizar de produtos (administrador)
+- Excluir, Criar e Atualização de produtos (administrador)
 <br />
 
 # 🔍 Outras especificações
