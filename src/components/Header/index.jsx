@@ -128,7 +128,7 @@ export function Header({ onSearch, searchResults }) {
                                                     onClick={() => {
                                                     setTimeout(() => {
                                                         window.location.reload();
-                                                    }, 1);
+                                                    }, 50);
                                                     }}
                                                 >
                                                     <img src={`${api.defaults.baseURL}/files/${dish.image}`} />
