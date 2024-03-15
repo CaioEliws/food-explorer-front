@@ -37,7 +37,6 @@ https://food-explorereliws.netlify.app/
 - Pesquisa dos produtos
 - Menu
 - Excluir, Criar, Atualizar de produtos (administrador)
-- Responsividade
 <br />
 
 # 🔍 Outras especificações
