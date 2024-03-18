@@ -89,10 +89,13 @@ export const Menu = styled.div`
 export const MenuMobile = styled.div`
     cursor: pointer;
     color: ${({ theme }) => theme.COLORS.WHITE};
+    
     display: flex;
     align-items: center;
-    
-    font-size: 2.4rem;
+
+    > svg {
+        font-size: 3rem;
+    }
 
     ul {
         display: none;
