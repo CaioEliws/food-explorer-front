@@ -28,7 +28,8 @@ Bem vindo ao Food explorer!! O projeto consiste em uma aplicação web que simul
 # 🔗 Acesse o projeto!!!
 
 https://food-explorereliws.netlify.app/
-<br />
+- Usuario admin: caio@gmail.com
+- Senha: 123
 <br />
 
 # 🔧 Funcionalidades
@@ -36,7 +37,7 @@ https://food-explorereliws.netlify.app/
 - Cadastro de usuários e administrador
 - Pesquisa dos produtos
 - Menu
-- Excluir, Criar, Atualizar de produtos (administrador)
+- Excluir, Criar e Atualização de produtos (administrador)
 <br />
 
 # 🔍 Outras especificações
