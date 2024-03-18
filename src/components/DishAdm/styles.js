@@ -13,10 +13,11 @@ export const Container = styled.div`
 
     gap: 25px;
 
+
     @media (max-width: 425px) {
       width: 20rem;
-      height: 30rem;
-      
+      max-height: 30rem;
+        
       padding: 24px;
 
       justify-content: center;

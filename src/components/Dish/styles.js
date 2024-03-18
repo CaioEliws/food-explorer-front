@@ -15,9 +15,14 @@ export const Container = styled.div`
 
   border: none;
 
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+  }
+
   @media (max-width: 425px) {
     width: 20rem;
-    height: 30rem;
+    max-height: 30rem;
       
     padding: 24px;
 
@@ -71,6 +76,7 @@ export const Container = styled.div`
 
   > h2 {
     color: ${({ theme }) => theme.COLORS.BLUE_LIGHT};
+  
 
     @media (max-width: 425px) {
       font-size: 1.6rem;
