@@ -21,7 +21,7 @@
 
 # 🌟 Introdução
   
-Bem vindo ao Food explorer!! O projeto consiste em uma aplicação web que simula um cardápio digital para um restaurante fictício. Este é o projeto final do curso Explorer da Rocketseat!
+Bem vindo ao Food explorer!! O projeto consiste em uma aplicação web que simula um cardápio digital para um restaurante.
 <br />
 <br />
 
